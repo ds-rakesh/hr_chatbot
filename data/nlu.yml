@@ -1,0 +1,127 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: ask_remaining_leaves
+  examples: |
+    - Please tell me how much my leaves are remaining.
+    - How many of my leaves are remaining?
+    - Can you please show me my remaining leaves?
+    - Can you please show me my no. of remaining leaves?
+    - Can you please show me my number of remaining leaves?
+    - Please show me my remaining leaves
+    - How many more leaves can I take?
+    - What is the number of leaves remaining for me?
+    - How many leavescan I take?
+    - Tell me the number of leaves remaining
+    - Show me my remaining leaves
+    - Show me the number of my remaining leaves
+    - Help me to find my leaves
+    - Help me to find my remaining leaves
+    - Can you please provide some details about my remaining leaves?
+    - How many leavesare still there for me?
+    - How many leavesare left for me?
+    - How many more leaves can I take?
+    - Can you show me remaining leaves?
+    - Can you show number of remaining leaves?
+
+
+- intent: give_id
+  examples: |
+    - [BH601M2016](id)
+    - my id is [BH505F2016](id)
+    - [BH605M2016](id) is my id
+    - Hey bot my id is [BH510F2016](id)
+    - [BH510F2017](id)
+    - Hey bot my id is [BH510F2018](id)
+    - [BH605F2020](id) is my id
+    - [BH601T2017](id)

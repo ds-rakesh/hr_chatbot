@@ -1,0 +1,47 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: greet + ask_show_remaining_leaves
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_remaining_leaves
+  - action: utter_ask_id
+  - intent: give_id
+    entities:
+    - id: "BH801M2022"
+  - action: action_save_id
+  # - action: action_display_id
+  - action: action_display_emp_details
+
+
+
+

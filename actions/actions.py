@@ -34,7 +34,7 @@ from rasa_sdk.executor import CollectingDispatcher
 import pymongo
 
 
-class ActionSaveId(Action):
+class ActionSaveId(Action):                             # Custom action to save the ID given by Employee from Entity 'id' to Slot 'emp_id'
 
     def name(self) -> Text:
         return "action_save_id"
@@ -43,13 +43,13 @@ class ActionSaveId(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        current_id = next(tracker.get_latest_entity_values("id"),None)
+        current_id = next(tracker.get_latest_entity_values("id"),None)  # Fetching the latest value stored in entity "id"
 
         # dispatcher.utter_message(text="Hello World!")
 
-        return [SlotSet("emp_id",current_id)]
+        return [SlotSet("emp_id",current_id)]                           # Store the latest value of entity "id" to slot "emp_id"
 
-# class Action_Display_Id(Action):
+# class Action_Display_Id(Action):                     # Custom action to display the ID which is saved in Slot 'emp_id'
 
 #     def name(self) -> Text:
 #         return "action_display_id"
@@ -66,7 +66,7 @@ class ActionSaveId(Action):
 
 #         return []
 
-class Action_Display_Emp_Details(Action):
+class Action_Display_Emp_Details(Action):                # Custom action to display the Employee Detials based on ID which is saved in Slot 'emp_id'
 
     def name(self) -> Text:
         return "action_display_emp_details"
@@ -75,15 +75,15 @@ class Action_Display_Emp_Details(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        id_to_display = tracker.get_slot("emp_id")
+        id_to_display = tracker.get_slot("emp_id")      #Fetching the "emp_id" slot value
 
-        client = pymongo.MongoClient("mongodb+srv://hrbot:hrbot123@cluster0.2c1m9.mongodb.net/?retryWrites=true&w=majority")
-        hrbot_db = client["hrbot"]
-        emp_detail_collection=hrbot_db['emp_detail']
+        client = pymongo.MongoClient("mongodb+srv://hrbot:hrbot123@cluster0.2c1m9.mongodb.net/?retryWrites=true&w=majority")    # creating  a MongoClient to the Mongo Atlass
+        hrbot_db = client["hrbot"]                      #Getting hrbot Database
+        emp_detail_collection=hrbot_db['emp_detail']    #Getting emp_detail Collection
 
-        query={"emp_id":id_to_display}
+        query={"emp_id":id_to_display}                  #our query to find Emp details based on emp_id
         
-        emp_details = [emp_details for emp_details in emp_detail_collection.find(query)]
+        emp_details = [emp_details for emp_details in emp_detail_collection.find(query)]  #Running the query
 
         if emp_details:
             emp_id = emp_details[0]["emp_id"]
